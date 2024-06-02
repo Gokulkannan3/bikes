@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Axios from 'axios';
 import Animation from './animation.json';
+import './Signup.css';
 
 export default function Ssignup() {
   const [name, setName] = useState('');
@@ -34,6 +35,10 @@ export default function Ssignup() {
       return false;
     }
 
+    if(password!==cpassword){
+      setValidationMessage("Password and confirm password are not the same")
+    }
+
     if (!mail.endsWith('@gmail.com')) {
       setValidationMessage("Invalid email format. Please use @gmail.com");
       return;
@@ -44,7 +49,7 @@ export default function Ssignup() {
       return;
     }
 
-    Axios.post(`http://localhost:3003/register`, {
+    Axios.post(`https://bikes-server.onrender.com/register`, {
       name: name,
       contact: contact,
       mail: mail,

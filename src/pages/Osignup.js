@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Axios from 'axios';
 import Animation from './animation.json';
+import './Signup.css';
 
 export default function Osignup() {
   const [name, setName] = useState('');
@@ -44,7 +45,7 @@ export default function Osignup() {
       return;
     }
 
-    Axios.post(`http://localhost:3003/register`, {
+    Axios.post(`https://bikes-server.onrender.com/register`, {
       name: name,
       contact: contact,
       mail: mail,

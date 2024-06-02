@@ -23,7 +23,7 @@ export default function Login() {
         e.preventDefault();
         console.log({ mail, password });
         try {
-            const response = await axios.post('http://localhost:3003/login', {
+            const response = await axios.post('https://bikes-server.onrender.com/login', {
                 mail: mail,
                 password: password,
             });
