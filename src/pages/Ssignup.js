@@ -36,7 +36,7 @@ export default function Ssignup() {
     }
 
     if(password!==cpassword){
-      setValidationMessage("Password and confirm password are not the same")
+      setValidationMessage("Password and confirm password are not the same.")
     }
 
     if (!mail.endsWith('@gmail.com')) {

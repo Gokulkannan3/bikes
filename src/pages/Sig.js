@@ -5,13 +5,13 @@ import Showroom from '../images/dealer.jpg'
 import rent from '../images/rent.png'
 import service from '../images/male.png'
 import { Link } from 'react-router-dom';
+import './Sig.css'
 
 export default function Sig() {
   return (
     <div>
       <Signavbar />
-      <div className="border-b border-gray-900/10 pb-12 p-5 flex justify-center mt-28">
-        <form>
+      <div className="ce border-b border-gray-900/10 pb-12 p-5 flex justify-center mt-28">
           <div className="mt-10 grid grid-cols-2 gap-6">
             <div className="w-44 h-44 bg-cover bg-center hover:scale-110" style={{ backgroundImage: `url(${avatar})` }}>
               <Link to='/signup'>
@@ -42,7 +42,6 @@ export default function Sig() {
               </Link>
             </div>
           </div>
-        </form>
       </div>
     </div>
   );

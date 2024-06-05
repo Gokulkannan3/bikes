@@ -1,0 +1,7 @@
+@media screen and (min-device-width:330px) and (max-device-width:900px){
+    .ce{
+        display:flex !important;
+        justify-content:center !important;
+        transform:translatex(-6px);
+    }
+}
