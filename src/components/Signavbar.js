@@ -34,7 +34,7 @@ export default function Signavbar() {
         <div className="navbar-end">
           <button className="btn btn-ghost btn-circle -translate-x-2">
             <div className="indicator">
-              <Link to='/login'><p className='font-2xl'>Login</p></Link>
+              <Link to='/sig'><p className='font-2xl'>Login</p></Link>
             </div>
           </button>
         </div>

@@ -12,7 +12,6 @@ export default function Navbarall() {
           <div className="drawer">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
             <div>
-              {/* Page content here */}
               <label htmlFor="my-drawer" className="w-6 h-6 drawer-button">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
               </label>
@@ -35,7 +34,7 @@ export default function Navbarall() {
         <div className="navbar-end">
           <button className="btn btn-ghost btn-circle -translate-x-2">
             <div className="indicator">
-              <Link to='/login'><p className='font-2xl'>Login</p></Link>
+              <Link to='/sig'><p className='font-2xl'>Login</p></Link>
             </div>
           </button>
         </div>

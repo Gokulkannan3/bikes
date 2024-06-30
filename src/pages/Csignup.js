@@ -10,70 +10,78 @@ import Axios from 'axios';
 import Animation from './animation.json';
 import './Signup.css';
 
-export default function Osignup() {
-  const [name, setName] = useState('');
-  const [contact, setContact] = useState('');
-  const [address, setAddress] = useState('');
-  const [mail, setMail] = useState('');
-  const [password, setPassword] = useState('');
-  const [cpassword, setCpassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [validationMessage, setValidationMessage] = useState('');
+export default function Csignup() {
+    const [name, setName] = useState('');
+    const [contact, setContact] = useState('');
+    const [cname, setCname] = useState('');
+    const [address, setAddress] = useState('');
+    const [area, setArea] = useState('');
+    const [state, setState] = useState('');
+    const [country, setCountry] = useState('');
+    const [mail, setMail] = useState('');
+    const [password, setPassword] = useState('');
+    const [cpassword, setCpassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [validationMessage, setValidationMessage] = useState('');
 
-  const addUser = (e) => {
-    e.preventDefault();
-    if (!name || !contact || !mail || !address || !password || !cpassword) {
-      setValidationMessage("Please fill in all details");
-      return;
-    }
+    const addUser = (e) => {
+        e.preventDefault();
+        if (!cname || !area || !state || !country || !name || !contact || !mail || !address || !password || !cpassword) {
+        setValidationMessage("Please fill in all details");
+        return;
+        }
 
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/;
-    if (!passwordRegex.test(password)) {
-      setValidationMessage("Password must have: \n- The first letter as a capital letter\n- At least one digit\n- At least one of the special characters @ or #\n- Minimum 8 characters in total");
-      return false;
-    }
+        const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/;
+        if (!passwordRegex.test(password)) {
+        setValidationMessage("Password must have: \n- The first letter as a capital letter\n- At least one digit\n- At least one of the special characters @ or #\n- Minimum 8 characters in total");
+        return false;
+        }
 
-    if (!mail.endsWith('@gmail.com')) {
-      setValidationMessage("Invalid email format. Please use @gmail.com");
-      return;
-    }
+        if (!mail.endsWith('@gmail.com')) {
+        setValidationMessage("Invalid email format. Please use @gmail.com");
+        return;
+        }
 
-    if (password !== cpassword) {
-      setValidationMessage("Password and Confirm Password do not match");
-      return;
-    }
+        if (password !== cpassword) {
+        setValidationMessage("Password and Confirm Password do not match");
+        return;
+        }
 
-    Axios.post(`https://bikes-server.onrender.com/register`, {
-      name: name,
-      contact: contact,
-      mail: mail,
-      address: address,
-      category: "Showroom",
-      password: password,
-      cpassword: cpassword,
-    })
-      .then(() => {
-        console.log("Success");
-        setModalIsOpen(true);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+        Axios.post(`https://bikes-server.onrender.com/cregister`, {
+            name: name,
+            contact: contact,
+            cname:cname,
+            mail: mail,
+            address: address,
+            area: area,
+            state: state,
+            country: country,
+            category: "Showroom",
+            password: password,
+            cpassword: cpassword,
+        })
+        .then(() => {
+            console.log("Success");
+            setModalIsOpen(true);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    };
 
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
+    const closeModal = () => {
+        setModalIsOpen(false);
+    };
 
-  const handleTogglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+    const handleTogglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
-  const handleToggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword(!showConfirmPassword);
-  };
+    const handleToggleConfirmPasswordVisibility = () => {
+        setShowConfirmPassword(!showConfirmPassword);
+    };
 
   return (
     <div>
@@ -111,16 +119,44 @@ export default function Osignup() {
                 </div>
 
                 <div class="sm:col-span-3">
+                  <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Company Name</label>
+                  <div class="mt-2">
+                    <input type="text" onChange={(e) => setCname(e.target.value)} name="first-name" id="first-name" autocomplete="given-name" class="block w-full text-center rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"></input>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-3">
                   <label for="contact" class="block text-sm font-medium leading-6 text-gray-900">Contact</label>
                   <div class="mt-2">
                     <input id="contact" onChange={(e) => setContact(e.target.value)} name="contact" type="contact" autocomplete="contact" class="block text-center w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"></input>
                   </div>
                 </div>
 
-                <div className="sm:col-span-6">
+                <div className="sm:col-span-3">
                   <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">Address</label>
                   <div className="mt-2">
                     <input onChange={(e) => setAddress(e.target.value)} type="text" name="street-address" id="street-address" autoComplete="street-address" className="block w-full text-center rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6" />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-3">
+                  <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">Area</label>
+                  <div className="mt-2">
+                    <input onChange={(e) => setArea(e.target.value)} type="text" name="area" id="area" autoComplete="area" className="block w-full text-center rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6" />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-3">
+                  <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">State</label>
+                  <div className="mt-2">
+                    <input onChange={(e) => setState(e.target.value)} type="text" name="state" id="state" autoComplete="state" className="block w-full text-center rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6" />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-3">
+                  <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">Country</label>
+                  <div className="mt-2">
+                    <input onChange={(e) => setCountry(e.target.value)} type="text" name="country" id="country" autoComplete="country" className="block w-full text-center rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6" />
                   </div>
                 </div>
 
@@ -144,7 +180,7 @@ export default function Osignup() {
                   </div>
                 </div>
                 <div className='flex justify-center'>
-                  <button onClick={addUser} type="submit" class="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">Sign in</button>
+                  <button onClick={addUser} type="submit" class="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">Register</button>
                 </div>
               </div>
             </form>

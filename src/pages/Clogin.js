@@ -7,7 +7,7 @@ import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import '../App.css';
 
-export default function Login() {
+export default function Clogin() {
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -23,7 +23,7 @@ export default function Login() {
         e.preventDefault();
         console.log({ mail, password });
         try {
-            const response = await axios.post('https://bikes-server.onrender.com/login', {
+            const response = await axios.post('https://bikes-server.onrender.com/slogin', {
                 mail: mail,
                 password: password,
             });
@@ -42,7 +42,7 @@ export default function Login() {
                 }else if(result.category==='Rental'){
                     navigate('/rental')
                 }else if(result.category==='Showroom'){
-                    navigate('/showroom')
+                    navigate('/company')
                 }else{
                     navigate('/login')
                 }
@@ -60,7 +60,7 @@ export default function Login() {
                 {showPopup && (
                     <Stack>
                         <Alert severity="warning" onClose={() => setShowPopup(false)}>
-                            Error Invalid Credentials Check username and Password
+                            Invalid Credentials Check username and Password
                         </Alert>
                     </Stack>
                 )}
@@ -130,7 +130,7 @@ export default function Login() {
 
                     <p className="mt-10 text-center text-sm text-gray-500">
                         Not a member?{' '}
-                        <Link to="/signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                        <Link to="/csignup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                             Signup
                         </Link>
                     </p>

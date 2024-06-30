@@ -5,6 +5,7 @@ import Bike from '../images/bike.jpg'
 import axios from 'axios';
 import { useEffect,useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Divider } from '@mui/material';
 
 export default function Navbar() {
     const [userData, setUserData] = useState(null);
@@ -15,7 +16,7 @@ export default function Navbar() {
         if (storedUserData) {
           setUserData(JSON.parse(storedUserData));
         } else {
-          axios.get(`http://localhost:3003/isAuth`, {
+          axios.get(`https://bikes-server.onrender.com/isAuth`, {
             headers: {
               "x-access-token": localStorage.getItem("token"),
             }
@@ -51,7 +52,6 @@ export default function Navbar() {
           <div className="drawer">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
             <div>
-              {/* Page content here */}
               <label htmlFor="my-drawer" className="w-6 h-6 drawer-button">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
               </label>
@@ -59,21 +59,24 @@ export default function Navbar() {
             <div className="drawer-side">
                 <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                 <div className="menu p-4 w-64 translate-y-10 min-h-full bg-base-200 text-base-content flex flex-col items-center">
-                    {/* Sidebar content here */}
-                    <Link to='/' className='w-full'>
+                  <Link to='/' className='w-full'>
+                    <button className='text-xl w-full flex justify-center'>{userData?.name}</button>
+                  </Link>
+                  <div className="divider w-full"></div>
+                  <Link to='/' className='w-full'>
                     <button className='text-xl w-full flex justify-center'>Home</button>
-                    </Link>
-                    <div className="divider w-full"></div> 
-                    {userData ? (
-                    <button className='text-xl w-full flex justify-center' onClick={handleLogout}>
-                        Logout
-                    </button>
-                    ) : (
-                    <Link to="/login" className="w-full">
-                        <button className='text-xl w-full flex justify-center'>Login</button>
-                    </Link>
-                    )}
-                    <div className="divider w-full"></div>
+                  </Link>
+                  <div className="divider w-full"></div> 
+                  {userData ? (
+                  <button className='text-xl w-full flex justify-center' onClick={handleLogout}>
+                    Logout
+                  </button>
+                  ) : (
+                  <Link to="/login" className="w-full">
+                      <button className='text-xl w-full flex justify-center'>Login</button>
+                  </Link>
+                  )}
+                  <div className="divider w-full"></div>
                 </div>
                 </div>
           </div>
@@ -89,7 +92,7 @@ export default function Navbar() {
                     Logout
                 </p>
             ) : (
-              <Link to='/login'><p className='font-2xl'>Login</p></Link>
+              <Link to='/sig'><p className='font-2xl'>Login</p></Link>
             )}
             </div>
           </button>
