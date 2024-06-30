@@ -36,7 +36,7 @@ export default function Login() {
                 localStorage.setItem('token', token);
                 localStorage.setItem('userData', JSON.stringify(result));
                 if(result.category==='Normal User'){
-                    navigate('/company');
+                    navigate('/normal');
                 }else if(result.category==='Service'){
                     navigate('/service')
                 }else if(result.category==='Rental'){

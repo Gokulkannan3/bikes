@@ -9,6 +9,7 @@ import Rsignup from "./pages/Rsignup";
 import Ssignup from "./pages/Ssignup";
 import Csignup from "./pages/Csignup";
 import Clogin from "./pages/Clogin";
+import Normal from "./pages/Normal";
 
 const AllRoutes = () =>{
     return(
@@ -22,6 +23,7 @@ const AllRoutes = () =>{
             <Route exact path="/service" element={<Ssignup/>}/>
             <Route exact path="/csignup" element={<Csignup/>}/>
             <Route exact path="/clogin" element={<Clogin/>}/>
+            <Route exact path="/normal" element={<Normal/>}/>
         </Routes> 
     )
 }
