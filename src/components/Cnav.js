@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useEffect,useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function Navbar() {
+export default function Cnav() {
     const [userData, setUserData] = useState(null);
     const navigate = useNavigate();
 
@@ -83,8 +83,13 @@ export default function Navbar() {
         <div className="navbar-center">
           <img className='mx-auto h-20' src={Bike} alt='bike'/>
         </div>
-        <div className="navbar-end">
-          <button className="btn btn-ghost btn-circle -translate-x-2">
+        <div className="navbar-end gap-2">
+        <button className="btn btn-ghost -translate-x-2">
+            <div className="indicator">
+                Add Bikes 
+            </div>
+        </button>
+          <button className="btn btn-ghost -translate-x-2">
             <div className="indicator">
             {userData ? (
                 <p className='font-2xl' onClick={handleLogout}>

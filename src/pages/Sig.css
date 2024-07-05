@@ -2,6 +2,6 @@
     .ce{
         display:flex !important;
         justify-content:center !important;
-        transform:translatex(-6px);
+        transform:translatex(-1px);
     }
 }
