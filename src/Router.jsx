@@ -10,6 +10,7 @@ import Ssignup from "./pages/Ssignup";
 import Csignup from "./pages/Csignup";
 import Clogin from "./pages/Clogin";
 import Normal from "./pages/Normal";
+import Add from "./pages/Add";
 
 const AllRoutes = () =>{
     return(
@@ -24,6 +25,7 @@ const AllRoutes = () =>{
             <Route exact path="/csignup" element={<Csignup/>}/>
             <Route exact path="/clogin" element={<Clogin/>}/>
             <Route exact path="/normal" element={<Normal/>}/>
+            <Route exact path="/addbikes" element={<Add/>}/>
         </Routes> 
     )
 }

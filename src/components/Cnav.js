@@ -84,11 +84,6 @@ export default function Cnav() {
           <img className='mx-auto h-20' src={Bike} alt='bike'/>
         </div>
         <div className="navbar-end gap-2">
-        <button className="btn btn-ghost -translate-x-2">
-            <div className="indicator">
-                Add Bikes 
-            </div>
-        </button>
           <button className="btn btn-ghost -translate-x-2">
             <div className="indicator">
             {userData ? (

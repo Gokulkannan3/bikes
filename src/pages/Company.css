@@ -1,0 +1,13 @@
+@media screen and (min-width: 330px) and (max-width: 900px) {
+    .top {
+      display: flex;
+      flex-direction: column !important;
+      justify-items:center !important;
+      align-items:center !important;
+      gap:20px !important;
+    }
+    .border-2 {
+        display: none !important;
+      }
+}
+  
